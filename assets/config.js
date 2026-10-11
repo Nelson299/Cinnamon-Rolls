@@ -56,11 +56,10 @@ window.BAKERY = {
 
   // "Past & future flavors" section on the homepage.
   pastAndFuture: [
-    { name: 'Apple Cinnamon with Streusel', img: 'images/apple-streusel.webp' },
-    { name: 'Pumpkin', img: 'images/pumpkin.webp' },
-    { name: 'Cookies and Cream', img: 'images/cookies-and-cream.webp' },
-    { name: 'Peach Cobbler', img: 'images/peach-cobbler.webp' },
-    { name: 'Birthday Cake', img: '' } // photo coming soon
+    { name: 'Birthday Cake', img: '' }, // photo coming soon
+    { name: 'Butter Pecan', img: 'images/butter-pecan.webp' },
+    { name: 'Blueberry', img: '' }, // photo coming soon
+    { name: 'Salted Caramel', img: 'images/salted-caramel.webp' }
   ],
 
   // Saved flavors for later weeks. Not shown on the site.
@@ -111,6 +110,9 @@ window.BAKERY = {
     { name: 'Strawberry Rhubarb', img: 'images/strawberry-rhubarb.webp' },
     { name: 'Pumpkin', img: 'images/pumpkin.webp' },
     { name: 'Banana Bread', img: 'images/banana-bread.webp' },
-    { name: 'Tiramisu', img: 'images/tiramisu.webp' }
+    { name: 'Tiramisu', img: 'images/tiramisu.webp' },
+    { name: 'Butter Pecan', img: 'images/butter-pecan.webp' },
+    { name: 'Birthday Cake', img: '' }, // needs a photo
+    { name: 'Blueberry', img: '' } // needs a photo
   ]
 };
