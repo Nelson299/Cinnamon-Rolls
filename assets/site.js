@@ -138,8 +138,11 @@
     }).join('');
 
     $('#gallery').innerHTML = B.pastAndFuture.map(function (f) {
-      return '<div class="gallery-card"><img src="' + esc(f.img) + '" alt="' + esc(f.name) +
-        ' cinnamon rolls" loading="lazy"><span>' + esc(f.name) + '</span></div>';
+      return '<div class="gallery-card">' +
+        (f.img
+          ? '<img src="' + esc(f.img) + '" alt="' + esc(f.name) + ' cinnamon rolls" loading="lazy">'
+          : '<div class="photo-soon square">Photo coming soon</div>') +
+        '<span>' + esc(f.name) + '</span></div>';
     }).join('');
 
     wireSignup($('#notify-form'));

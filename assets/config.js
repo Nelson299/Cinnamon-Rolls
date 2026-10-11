@@ -59,7 +59,8 @@ window.BAKERY = {
     { name: 'Apple Cinnamon with Streusel', img: 'images/apple-streusel.webp' },
     { name: 'Pumpkin', img: 'images/pumpkin.webp' },
     { name: 'Cookies and Cream', img: 'images/cookies-and-cream.webp' },
-    { name: 'Peach Cobbler', img: 'images/peach-cobbler.webp' }
+    { name: 'Peach Cobbler', img: 'images/peach-cobbler.webp' },
+    { name: 'Birthday Cake', img: '' } // photo coming soon
   ],
 
   // Saved flavors for later weeks. Not shown on the site.
