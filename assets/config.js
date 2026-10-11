@@ -40,7 +40,7 @@ window.BAKERY = {
       desc: 'Our original roll with a sweet-tart strawberry rhubarb filling.',
       ingredients: 'Everything in the original, plus strawberries, rhubarb and cornstarch',
       allergens: 'Wheat, milk, eggs',
-      img: '' // photo coming soon; leave empty to show a placeholder
+      img: 'images/strawberry-rhubarb.webp'
     },
     {
       id: 'biscoff',
@@ -50,7 +50,7 @@ window.BAKERY = {
       desc: 'Our original roll with Biscoff cookie butter, topped with crushed Biscoff cookies.',
       ingredients: 'Everything in the original, plus Biscoff cookies and Biscoff cookie butter',
       allergens: 'Wheat, milk, eggs, soy',
-      img: 'images/biscoff.webp'
+      img: 'images/biscoff-2.webp'
     }
   ],
 
@@ -106,7 +106,8 @@ window.BAKERY = {
       allergens: 'Wheat, milk, eggs, soy',
       img: 'images/cookies-and-cream.webp'
     },
-    { name: 'Biscoff', img: 'images/biscoff.webp' },
+    { name: 'Biscoff', img: 'images/biscoff.webp' }, // second photo: images/biscoff-2.webp
+    { name: 'Strawberry Rhubarb', img: 'images/strawberry-rhubarb.webp' },
     { name: 'Pumpkin', img: 'images/pumpkin.webp' },
     { name: 'Banana Bread', img: 'images/banana-bread.webp' },
     { name: 'Tiramisu', img: 'images/tiramisu.webp' }
