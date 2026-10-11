@@ -33,6 +33,40 @@ window.BAKERY = {
       img: 'images/original.webp'
     },
     {
+      id: 'strawberry-rhubarb',
+      name: 'Strawberry Rhubarb',
+      price: 4,
+      gourmet: true,
+      desc: 'Our original roll with a sweet-tart strawberry rhubarb filling.',
+      ingredients: 'Everything in the original, plus strawberries, rhubarb and cornstarch',
+      allergens: 'Wheat, milk, eggs',
+      img: '' // photo coming soon; leave empty to show a placeholder
+    },
+    {
+      id: 'biscoff',
+      name: 'Biscoff',
+      price: 4,
+      gourmet: true,
+      desc: 'Our original roll with Biscoff cookie butter, topped with crushed Biscoff cookies.',
+      ingredients: 'Everything in the original, plus Biscoff cookies and Biscoff cookie butter',
+      allergens: 'Wheat, milk, eggs, soy',
+      img: 'images/biscoff.webp'
+    }
+  ],
+
+  // "Past & future flavors" section on the homepage.
+  pastAndFuture: [
+    { name: 'Apple Cinnamon with Streusel', img: 'images/apple-streusel.webp' },
+    { name: 'Pumpkin', img: 'images/pumpkin.webp' },
+    { name: 'Cookies and Cream', img: 'images/cookies-and-cream.webp' },
+    { name: 'Peach Cobbler', img: 'images/peach-cobbler.webp' }
+  ],
+
+  // Saved flavors for later weeks. Not shown on the site.
+  // To bring one back, copy it into `flavors` (or `pastAndFuture`) above.
+  // Photos for all of these are kept in the images/ folder.
+  flavorLibrary: [
+    {
       id: 'peach-cobbler',
       name: 'Peach Cobbler',
       price: 4,
@@ -51,21 +85,7 @@ window.BAKERY = {
       ingredients: 'Everything in the original, plus caramel (sugar, butter, heavy cream) and sea salt',
       allergens: 'Wheat, milk, eggs',
       img: 'images/salted-caramel.webp'
-    }
-  ],
-
-  // "Past & future flavors" section on the homepage.
-  pastAndFuture: [
-    { name: 'Apple Cinnamon with Streusel', img: 'images/apple-streusel.webp' },
-    { name: 'Pumpkin', img: 'images/pumpkin.webp' },
-    { name: 'Cookies and Cream', img: 'images/cookies-and-cream.webp' },
-    { name: 'Biscoff', img: 'images/biscoff.webp' }
-  ],
-
-  // Saved flavors for later weeks. Not shown on the site.
-  // To bring one back, copy it into `flavors` (or `pastAndFuture`) above.
-  // Photos for all of these are kept in the images/ folder.
-  flavorLibrary: [
+    },
     {
       id: 'apple-streusel',
       name: 'Apple Cinnamon with Streusel',

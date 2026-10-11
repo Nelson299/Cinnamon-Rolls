@@ -125,7 +125,9 @@
     list.innerHTML = B.flavors.map(function (f) {
       return '<article class="flavor' + (f.gourmet ? ' gourmet' : '') + '">' +
         (f.gourmet ? '<span class="badge">Gourmet</span>' : '') +
-        '<img src="' + esc(f.img) + '" alt="' + esc(f.name) + ' cinnamon rolls" loading="lazy">' +
+        (f.img
+          ? '<img src="' + esc(f.img) + '" alt="' + esc(f.name) + ' cinnamon rolls" loading="lazy">'
+          : '<div class="photo-soon">Photo coming soon</div>') +
         '<span class="eyebrow">' + (f.gourmet ? 'This week only' : 'The original') + '</span>' +
         '<h3>' + esc(f.name) + '</h3>' +
         '<p>' + esc(f.desc) + '</p>' +
@@ -189,7 +191,7 @@
     menu.innerHTML = B.flavors.map(function (f) {
       qty[f.id] = 0;
       return '<div class="menu-item">' +
-        '<img src="' + esc(f.img) + '" alt="">' +
+        (f.img ? '<img src="' + esc(f.img) + '" alt="">' : '<div class="photo-soon small" aria-hidden="true"></div>') +
         '<div class="menu-info"><span class="eyebrow' + (f.gourmet ? ' g' : '') + '">' + (f.gourmet ? 'Gourmet' : 'The original') + '</span>' +
         '<strong>' + esc(f.name) + '</strong><span>' + esc(f.desc) + '</span>' +
         '<span class="each">$' + f.price + ' each</span></div>' +
