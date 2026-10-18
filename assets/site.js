@@ -226,9 +226,28 @@
         : '<p class="muted">Add some rolls to get started.</p>';
       $('#count').textContent = '(' + t.count + (t.count === 1 ? ' roll)' : ' rolls)');
       $('#total').textContent = money(t.total);
-      $('#pay-amount').textContent = money(t.total);
-      $('#pay-btn').disabled = t.count === 0;
+      var cash = payment() === 'cash';
+      var btn = $('#pay-btn');
+      btn.className = 'btn ' + (cash ? 'btn-cash' : 'btn-venmo');
+      $('#pay-label').textContent = cash
+        ? 'Place order · ' + money(t.total) + ' cash'
+        : 'Pay ' + money(t.total) + ' with Venmo';
+      $('#pay-fine').innerHTML = cash
+        ? 'No payment now. You\'ll pay <b>' + money(t.total) + '</b> in cash when your rolls arrive.'
+        : 'Opens Venmo to <b>@' + esc(B.venmoUser) + '</b> with your total filled in. Just tap Pay.';
+      $('#cash-note').classList.toggle('hidden', !cash);
+      document.querySelectorAll('.cash-amount').forEach(function (el) { el.textContent = money(t.total); });
+      document.querySelectorAll('.cash-date').forEach(function (el) { el.textContent = w.deliveryDate; });
+      btn.disabled = t.count === 0;
     }
+
+    function payment() {
+      var picked = document.querySelector('input[name=payment]:checked');
+      return picked ? picked.value : 'venmo';
+    }
+    document.querySelectorAll('input[name=payment]').forEach(function (r) {
+      r.addEventListener('change', render);
+    });
 
     menu.addEventListener('click', function (e) {
       var btn = e.target.closest('button[data-step]');
@@ -266,10 +285,16 @@
         count: t.count,
         total: t.total,
         deliveryDate: w.deliveryDate,
-        venmoNote: w.venmoNote
+        venmoNote: w.venmoNote,
+        payment: payment()
       };
       store('bbe-last-order', order);
       send(order);
+      if (order.payment === 'cash') {
+        // Give the order a moment to send before leaving the page.
+        setTimeout(function () { window.location.href = 'confirmation.html'; }, 400);
+        return;
+      }
       var triedApp = openVenmo(order);
       // Leave time for the Venmo app to open, then show the confirmation
       // page so it's waiting when they come back.
@@ -295,7 +320,13 @@
       return '<div class="summary-line"><span>' + i.qty + ' × ' + esc(i.name) + '</span><span>' + money(i.qty * i.price) + '</span></div>';
     }).join('');
     $('#c-count').textContent = '(' + o.count + (o.count === 1 ? ' roll)' : ' rolls)');
-    $('#venmo-again').addEventListener('click', function () { openVenmo(o); });
+    if (o.payment === 'cash') {
+      $('#c-pay-venmo').classList.add('hidden');
+      $('#c-pay-cash').classList.remove('hidden');
+      $('#c-cash-date').textContent = o.deliveryDate;
+    } else {
+      $('#venmo-again').addEventListener('click', function () { openVenmo(o); });
+    }
   }
 
   // ---------- Boot ----------

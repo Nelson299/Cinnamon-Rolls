@@ -69,17 +69,32 @@
         <div class="card-title"><span class="n">3</span><h2 id="step3">Your order</h2></div>
         <div id="summary-lines" class="summary-lines"></div>
         <div class="summary-total"><span>Total <small id="count">(0 rolls)</small></span><strong id="total">$0.00</strong></div>
+        <fieldset class="pay-choice">
+          <legend>How would you like to pay?</legend>
+          <label class="pay-option">
+            <input type="radio" name="payment" value="venmo" checked>
+            <span><b>Venmo</b><small>Pay now. We'll open Venmo with your total filled in.</small></span>
+          </label>
+          <label class="pay-option">
+            <input type="radio" name="payment" value="cash">
+            <span><b>Cash</b><small>Pay when your rolls are delivered.</small></span>
+          </label>
+        </fieldset>
+        <div id="cash-note" class="cash-note hidden" role="status">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F4E73" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>
+          <span>Your total of <b class="cash-amount">$0.00</b> will be due in cash at delivery on <b class="cash-date">Saturday</b>. Please have exact change ready.</span>
+        </div>
         <div class="pay-bar">
           <button type="button" id="pay-btn" class="btn btn-venmo" disabled>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18"/></svg>
-            Pay <span id="pay-amount">$0.00</span> with Venmo
+            <span id="pay-label">Pay <span id="pay-amount">$0.00</span> with Venmo</span>
           </button>
           <p id="pay-error" class="error-msg" role="alert"></p>
-          <p class="fine">Opens Venmo to <b>@ellinelson1</b> with your total filled in. Just tap Pay.</p>
+          <p id="pay-fine" class="fine">Opens Venmo to <b>@ellinelson1</b> with your total filled in. Just tap Pay.</p>
         </div>
         <div class="note-pink">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9E2754" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 6L9 17l-5-5"/></svg>
-          Your order is saved when you tap Pay. You'll get a confirmation email.
+          Your order is saved when you tap the button above. You'll get a confirmation email.
         </div>
         <p class="fine" style="text-align:left">This product is made in a home kitchen that is not inspected by the state or local health department. Bakes by El products are not certified, labeled, licensed, packaged, regulated, or inspected.</p>
       </aside>

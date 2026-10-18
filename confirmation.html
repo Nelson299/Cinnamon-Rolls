@@ -38,9 +38,15 @@
       </div>
       <div class="tile pink">
         <span class="eyebrow">Payment</span>
-        <strong><span class="c-total"></span> on Venmo</strong>
-        <p>To @ellinelson1 with the note "<span id="c-note"></span>". Didn't finish paying?</p>
-        <button type="button" id="venmo-again" class="btn btn-venmo" style="font-size:15px;padding:12px 18px">Open Venmo again</button>
+        <div id="c-pay-venmo" style="display:flex;flex-direction:column;gap:10px">
+          <strong><span class="c-total"></span> on Venmo</strong>
+          <p>To @ellinelson1 with the note "<span id="c-note"></span>". Didn't finish paying?</p>
+          <button type="button" id="venmo-again" class="btn btn-venmo" style="font-size:15px;padding:12px 18px">Open Venmo again</button>
+        </div>
+        <div id="c-pay-cash" class="hidden" style="display:flex;flex-direction:column;gap:10px">
+          <strong><span class="c-total"></span> cash at delivery</strong>
+          <p>Your total is due in cash when your rolls arrive on <b id="c-cash-date">Saturday</b>. Please have exact change ready.</p>
+        </div>
       </div>
     </div>
 

@@ -87,33 +87,39 @@ function order_(d) {
   var summary = lines.map(function (l) { return l.qty + ' × ' + l.name; }).join(', ');
 
   var note = String(d.venmoNote || (d.deliveryDate + ' Rolls')).slice(0, 60);
+  var cash = d.payment === 'cash';
   var sh = sheet_('Orders', ['Placed', 'Name', 'Phone', 'Email', 'Address', 'Delivery notes',
-    'Rolls', 'Count', 'Total', 'Delivery date', 'Paid?', 'Delivered?']);
-  sh.appendRow([new Date(), d.name, d.phone, d.email, address, d.notes || '',
-    summary, count, total, d.deliveryDate, '', '']);
+    'Rolls', 'Count', 'Total', 'Payment', 'Delivery date', 'Paid?', 'Delivered?']);
+  appendByHeader_(sh, {
+    'Placed': new Date(), 'Name': d.name, 'Phone': d.phone, 'Email': d.email, 'Address': address,
+    'Delivery notes': d.notes || '', 'Rolls': summary, 'Count': count, 'Total': total,
+    'Payment': cash ? 'Cash at delivery' : 'Venmo', 'Delivery date': d.deliveryDate
+  });
 
   // Email the customer
   MailApp.sendEmail({
     to: d.email,
     subject: 'Your cinnamon rolls are ordered!',
-    htmlBody: confirmationEmail_(d, lines, total, count, address, note),
+    htmlBody: confirmationEmail_(d, lines, total, count, address, note, cash),
     name: BAKERY
   });
 
   // Email Elli
   MailApp.sendEmail({
     to: Session.getEffectiveUser().getEmail(),
-    subject: 'New order — ' + d.name + ' — $' + total.toFixed(2),
+    subject: 'New order — ' + d.name + ' — $' + total.toFixed(2) + (cash ? ' CASH' : ' Venmo'),
     body: d.name + ' ordered ' + summary + ' ($' + total.toFixed(2) + ').\n\n' +
       'Deliver ' + d.deliveryDate + ' to: ' + address + '\n' +
       'Phone: ' + d.phone + '\nEmail: ' + d.email + '\nNotes: ' + (d.notes || '—') + '\n\n' +
-      'Check Venmo for a payment from ' + d.name + ' with the note "' + note + '".'
+      (cash
+        ? 'PAYING CASH: collect $' + total.toFixed(2) + ' at delivery.'
+        : 'Check Venmo for a payment from ' + d.name + ' with the note "' + note + '".')
   });
 
   return { ok: true, total: total };
 }
 
-function confirmationEmail_(d, lines, total, count, address, note) {
+function confirmationEmail_(d, lines, total, count, address, note, cash) {
   var venmoLink = 'https://account.venmo.com/pay?txn=pay&recipients=' + VENMO +
     '&amount=' + total.toFixed(2) + '&note=' + encodeURIComponent(note);
   var rows = lines.map(function (l) {
@@ -139,8 +145,10 @@ function confirmationEmail_(d, lines, total, count, address, note) {
     '<td style="border-top:1px dashed #E3D3E6;padding-top:10px;text-align:right;font-weight:bold;font-size:20px">$' + total.toFixed(2) + '</td></tr></table>' +
     '<div style="background:#FCE4EC;border-radius:14px;padding:16px 18px;margin-top:18px">' +
     '<div style="font-size:12px;font-weight:bold;letter-spacing:.06em;text-transform:uppercase;color:#7A1F44">Payment</div>' +
-    '<p style="margin:6px 0 12px">Pay <b>$' + total.toFixed(2) + '</b> on Venmo to <b>@' + VENMO + '</b> with the note "' + esc_(note) + '". If you already paid, you\'re all set!</p>' +
-    '<a href="' + venmoLink + '" style="display:inline-block;background:#0074DE;color:#fff;text-decoration:none;font-weight:bold;padding:12px 22px;border-radius:999px">Pay with Venmo</a>' +
+    (cash
+      ? '<p style="margin:6px 0 0"><b>Cash at delivery:</b> your total of <b>$' + total.toFixed(2) + '</b> is due in cash when your rolls arrive on ' + esc_(d.deliveryDate) + '. Please have exact change ready.</p>'
+      : '<p style="margin:6px 0 12px">Pay <b>$' + total.toFixed(2) + '</b> on Venmo to <b>@' + VENMO + '</b> with the note "' + esc_(note) + '". If you already paid, you\'re all set!</p>' +
+        '<a href="' + venmoLink + '" style="display:inline-block;background:#0074DE;color:#fff;text-decoration:none;font-weight:bold;padding:12px 22px;border-radius:999px">Pay with Venmo</a>') +
     '</div>' +
     '<p style="color:#6B5570;margin:18px 0 0">Keep them in the fridge and enjoy within 2 days. Warm one in the microwave for 15–30 seconds.</p>' +
     '<p style="color:#6B5570;margin:10px 0 0">Questions or changes? Text Elli at ' + TEXT_NUMBER + '.</p>' +
@@ -188,6 +196,20 @@ function sheet_(name, headers) {
     sh.getRange(1, 1, 1, headers.length).setFontWeight('bold');
   }
   return sh;
+}
+
+// Writes a row by column name, so older sheets missing a column (like
+// "Payment") get it added at the end instead of shifting everything over.
+function appendByHeader_(sh, values) {
+  var lastCol = sh.getLastColumn();
+  var headers = sh.getRange(1, 1, 1, lastCol).getValues()[0].map(String);
+  Object.keys(values).forEach(function (k) {
+    if (headers.indexOf(k) === -1) {
+      headers.push(k);
+      sh.getRange(1, headers.length).setValue(k).setFontWeight('bold');
+    }
+  });
+  sh.appendRow(headers.map(function (h) { return values.hasOwnProperty(h) ? values[h] : ''; }));
 }
 
 function esc_(s) {

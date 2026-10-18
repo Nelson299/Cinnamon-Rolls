@@ -50,6 +50,8 @@ In `assets/config.js`:
 
 Then commit and push. The site updates in about a minute.
 
-## Paying with Venmo
+## Payment: Venmo or cash
+
+Customers pick **Venmo** or **Cash** at checkout. Cash orders skip Venmo; the customer is told the full amount is due at delivery, and the sheet's **Payment** column says "Cash at delivery".
 
 On a phone, **Pay with Venmo** opens the Venmo app to @ellinelson1 with the amount and a note like "Oct 3rd Rolls" (that week's delivery date). On a computer, it opens Venmo's website. The site can't see whether someone actually paid: match Venmo payments to the **Name** column and mark **Paid?** in the sheet.

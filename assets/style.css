@@ -214,6 +214,17 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
 .summary-total span:first-child { font-size: 17px; font-weight: 700; }
 .summary-total small { font-weight: 600; color: var(--muted); font-size: 15px; }
 .summary-total strong { font-family: var(--display); font-size: 30px; font-weight: 700; }
+.pay-choice { border: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.pay-choice legend { font-size: 15px; font-weight: 700; margin-bottom: 10px; padding: 0; }
+.pay-option { display: flex; align-items: flex-start; gap: 12px; border: 1.5px solid var(--dash); border-radius: 14px; padding: 14px 16px; cursor: pointer; background: var(--bg); }
+.pay-option:has(input:checked) { border-color: var(--accent); background: #fff; }
+.pay-option input { width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--accent); flex-shrink: 0; }
+.pay-option span { display: flex; flex-direction: column; gap: 2px; }
+.pay-option b { font-size: 16px; }
+.pay-option small { font-size: 13px; line-height: 1.4; color: var(--muted); font-weight: 600; }
+.cash-note { display: flex; align-items: flex-start; gap: 10px; background: var(--blue-soft); border-radius: 14px; padding: 14px 16px; font-size: 14px; font-weight: 600; line-height: 1.5; color: var(--blue-dark); }
+.btn-cash { background: var(--accent); color: #fff; font-size: 17px; width: 100%; }
+.btn-cash:hover { background: var(--accent-dark); color: #fff; }
 .fine { font-size: 13px; line-height: 1.6; color: var(--muted); text-align: center; }
 .note-pink { display: flex; align-items: center; gap: 10px; background: var(--pink-soft); border-radius: 14px; padding: 12px 14px; font-size: 13px; font-weight: 600; color: #7A1F44; line-height: 1.5; }
 .error-msg { color: #B3261E; font-size: 14px; font-weight: 700; text-align: center; }
