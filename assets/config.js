@@ -40,7 +40,7 @@ window.BAKERY = {
       desc: 'Our original roll filled with cinnamon apples and drizzled with homemade caramel.',
       ingredients: 'Everything in the original, plus apples, cornstarch and caramel (sugar, butter, heavy cream)',
       allergens: 'Wheat, milk, eggs',
-      img: 'images/apple-streusel.webp'
+      img: 'images/caramel-apple.webp'
     },
     {
       id: 'maple-pecan',
