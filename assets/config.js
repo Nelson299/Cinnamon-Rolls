@@ -11,7 +11,7 @@ window.BAKERY = {
 
   // Paste your Google Apps Script web app URL here (see README.md, step 2).
   // Until this is filled in, orders and email sign-ups are NOT saved anywhere.
-  ordersEndpoint: 'https://script.google.com/macros/s/AKfycbx7wNVD76zUBSj5yjUNsbxeYFRFK_UwbxSK3aD13-MtDY7uitcHqxhyOpvZcsyY8hbs/exec',
+  ordersEndpoint: 'https://script.google.com/macros/s/AKfycbzTRuWLa4TdtfJa8zeN9atjiIkzPEPNX54cVUQtXtVZKEAZrOWxvK4EUXUAJc0e37gh/exec',
 
   // Ordering window, in Central Time. Opens Sunday 12:00 AM,
   // closes Thursday at 8 PM. Delivery is the Saturday after.
