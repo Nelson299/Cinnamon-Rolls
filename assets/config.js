@@ -58,7 +58,7 @@ window.BAKERY = {
   pastAndFuture: [
     { name: 'Birthday Cake', img: '' }, // photo coming soon
     { name: 'Butter Pecan', img: 'images/butter-pecan.webp' },
-    { name: 'Blueberry', img: '' }, // photo coming soon
+    { name: 'Blueberry', img: 'images/blueberry.webp' },
     { name: 'Salted Caramel', img: 'images/salted-caramel.webp' }
   ],
 
@@ -141,6 +141,6 @@ window.BAKERY = {
     { name: 'Tiramisu', img: 'images/tiramisu.webp' },
     { name: 'Butter Pecan', img: 'images/butter-pecan.webp' },
     { name: 'Birthday Cake', img: '' }, // needs a photo
-    { name: 'Blueberry', img: '' } // needs a photo
+    { name: 'Blueberry', img: 'images/blueberry.webp' }
   ]
 };
