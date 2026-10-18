@@ -44,6 +44,10 @@
 
         <form id="order-form" class="card blue" aria-labelledby="step2" novalidate>
           <div class="card-title"><span class="n">2</span><h2 id="step2">Delivery details</h2></div>
+          <p id="welcome-back" class="welcome-back hidden" role="status">
+            Welcome back, <b id="welcome-name"></b>! We filled in your details from last time.
+            <button type="button" id="forget-me" class="link-btn">Not you?</button>
+          </p>
           <div class="info-box">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2F6C9A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
             <span>We deliver <b>Saturdays between 7 and 11 AM</b>, anywhere within 20 miles of West Fargo. We can't promise an exact time in that window.</span>
@@ -62,6 +66,7 @@
             <div class="field"><label for="o-zip">ZIP</label><input id="o-zip" name="zip" required inputmode="numeric" pattern="[0-9]{5}" autocomplete="postal-code"></div>
           </div>
           <div class="field"><label for="o-notes">Delivery notes <span>(optional)</span></label><textarea id="o-notes" name="notes" rows="3" placeholder="Gate code, side door, etc."></textarea></div>
+          <label class="remember"><input type="checkbox" id="remember-me" checked> Remember my details on this device for next time</label>
         </form>
       </div>
 

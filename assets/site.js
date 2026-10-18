@@ -261,6 +261,27 @@
     render();
 
     var form = $('#order-form');
+
+    // Repeat customers: fill in what they used last time on this device.
+    // Saved only in their own browser, never on the public site.
+    var FIELDS = ['name', 'phone', 'email', 'street', 'apt', 'city', 'zip', 'notes'];
+    var saved = store('bbe-customer');
+    if (saved && saved.name) {
+      FIELDS.forEach(function (k) { if (saved[k]) form.elements[k].value = saved[k]; });
+      if (saved.payment) {
+        var radio = document.querySelector('input[name=payment][value="' + saved.payment + '"]');
+        if (radio) { radio.checked = true; render(); }
+      }
+      $('#welcome-name').textContent = saved.name.split(' ')[0];
+      $('#welcome-back').classList.remove('hidden');
+    }
+    $('#forget-me').addEventListener('click', function () {
+      try { localStorage.removeItem('bbe-customer'); } catch (e) {}
+      FIELDS.forEach(function (k) { form.elements[k].value = ''; });
+      $('#welcome-back').classList.add('hidden');
+      form.elements.name.focus();
+    });
+
     $('#pay-btn').addEventListener('click', function () {
       var err = $('#pay-error');
       err.textContent = '';
@@ -289,6 +310,13 @@
         payment: payment()
       };
       store('bbe-last-order', order);
+      if ($('#remember-me').checked) {
+        var me = { payment: order.payment };
+        FIELDS.forEach(function (k) { me[k] = order[k]; });
+        store('bbe-customer', me);
+      } else {
+        try { localStorage.removeItem('bbe-customer'); } catch (e) {}
+      }
       send(order);
       if (order.payment === 'cash') {
         // Give the order a moment to send before leaving the page.
