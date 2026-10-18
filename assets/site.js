@@ -230,10 +230,10 @@
       var btn = $('#pay-btn');
       btn.className = 'btn ' + (cash ? 'btn-cash' : 'btn-venmo');
       $('#pay-label').textContent = cash
-        ? 'Place order · ' + money(t.total) + ' cash'
+        ? 'Place order'
         : 'Pay ' + money(t.total) + ' with Venmo';
       $('#pay-fine').innerHTML = cash
-        ? 'No payment now. You\'ll pay <b>' + money(t.total) + '</b> in cash when your rolls arrive.'
+        ? ''
         : 'Opens Venmo to <b>@' + esc(B.venmoUser) + '</b> with your total filled in. Just tap Pay.';
       $('#cash-note').classList.toggle('hidden', !cash);
       document.querySelectorAll('.cash-amount').forEach(function (el) { el.textContent = money(t.total); });

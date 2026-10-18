@@ -85,11 +85,11 @@
             <span><b>Cash</b><small>Pay when your rolls are delivered.</small></span>
           </label>
         </fieldset>
-        <div id="cash-note" class="cash-note hidden" role="status">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F4E73" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>
-          <span>Your total of <b class="cash-amount">$0.00</b> will be due in cash at delivery on <b class="cash-date">Saturday</b>. Please have exact change ready. Someone needs to be home to pay; we can only leave rolls on the step for Venmo orders.</span>
-        </div>
         <div class="pay-bar">
+          <div id="cash-note" class="cash-note hidden" role="status">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F4E73" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>
+            <span>Please confirm you'd like to pay <b class="cash-amount">$0.00</b> in cash at the time of delivery.</span>
+          </div>
           <button type="button" id="pay-btn" class="btn btn-venmo" disabled>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18"/></svg>
             <span id="pay-label">Pay <span id="pay-amount">$0.00</span> with Venmo</span>

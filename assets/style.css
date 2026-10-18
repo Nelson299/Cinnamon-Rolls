@@ -226,6 +226,7 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
 .pay-option span { display: flex; flex-direction: column; gap: 2px; }
 .pay-option b { font-size: 16px; }
 .pay-option small { font-size: 13px; line-height: 1.4; color: var(--muted); font-weight: 600; }
+.pay-bar .cash-note { margin-bottom: 12px; }
 .cash-note { display: flex; align-items: flex-start; gap: 10px; background: var(--blue-soft); border-radius: 14px; padding: 14px 16px; font-size: 14px; font-weight: 600; line-height: 1.5; color: var(--blue-dark); }
 .btn-cash { background: var(--accent); color: #fff; font-size: 17px; width: 100%; }
 .btn-cash:hover { background: var(--accent-dark); color: #fff; }
