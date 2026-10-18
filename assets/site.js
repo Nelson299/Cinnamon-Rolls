@@ -226,24 +226,25 @@
         : '<p class="muted">Add some rolls to get started.</p>';
       $('#count').textContent = '(' + t.count + (t.count === 1 ? ' roll)' : ' rolls)');
       $('#total').textContent = money(t.total);
-      var cash = payment() === 'cash';
+      var method = payment();
+      var cash = method === 'cash';
       var btn = $('#pay-btn');
       btn.className = 'btn ' + (cash ? 'btn-cash' : 'btn-venmo');
-      $('#pay-label').textContent = cash
-        ? 'Place order'
-        : 'Pay ' + money(t.total) + ' with Venmo';
-      $('#pay-fine').innerHTML = cash
-        ? ''
-        : 'Opens Venmo to <b>@' + esc(B.venmoUser) + '</b> with your total filled in. Just tap Pay.';
+      $('#pay-label').textContent = !method
+        ? 'Select a payment type'
+        : cash ? 'Place order' : 'Pay ' + money(t.total) + ' with Venmo';
+      $('#pay-fine').innerHTML = method === 'venmo'
+        ? 'Opens Venmo to <b>@' + esc(B.venmoUser) + '</b> with your total filled in. Just tap Pay.'
+        : '';
       $('#cash-note').classList.toggle('hidden', !cash);
       document.querySelectorAll('.cash-amount').forEach(function (el) { el.textContent = money(t.total); });
       document.querySelectorAll('.cash-date').forEach(function (el) { el.textContent = w.deliveryDate; });
-      btn.disabled = t.count === 0;
+      btn.disabled = t.count === 0 || !method;
     }
 
     function payment() {
       var picked = document.querySelector('input[name=payment]:checked');
-      return picked ? picked.value : 'venmo';
+      return picked ? picked.value : '';
     }
     document.querySelectorAll('input[name=payment]').forEach(function (r) {
       r.addEventListener('change', render);
@@ -287,6 +288,7 @@
       err.textContent = '';
       var t = totals();
       if (t.count === 0) { err.textContent = 'Add at least one roll.'; return; }
+      if (!payment()) { err.textContent = 'Choose Venmo or cash.'; return; }
       if (!form.reportValidity()) { err.textContent = 'Please fill in your delivery details.'; return; }
       if (!orderWindow().open) { window.location.reload(); return; }
 
