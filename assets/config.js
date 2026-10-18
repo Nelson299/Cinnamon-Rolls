@@ -40,7 +40,17 @@ window.BAKERY = {
       desc: 'Our original roll filled with cinnamon apples and drizzled with homemade caramel.',
       ingredients: 'Everything in the original, plus apples, cornstarch and caramel (sugar, butter, heavy cream)',
       allergens: 'Wheat, milk, eggs',
-      img: '' // photo coming soon
+      img: 'images/apple-streusel.webp'
+    },
+    {
+      id: 'maple-pecan',
+      name: 'Maple Pecan',
+      price: 4,
+      gourmet: true,
+      desc: 'Our original roll with maple cream cheese icing and toasted pecans.',
+      ingredients: 'Everything in the original, plus pecans and maple syrup',
+      allergens: 'Wheat, milk, eggs, tree nuts (pecans)',
+      img: 'images/maple-pecan.webp'
     }
   ],
 
