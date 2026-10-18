@@ -56,7 +56,7 @@ window.BAKERY = {
 
   // "Past & future flavors" section on the homepage.
   pastAndFuture: [
-    { name: 'Birthday Cake', img: '' }, // photo coming soon
+    { name: 'Funfetti', img: '' }, // photo coming soon
     { name: 'Butter Pecan', img: 'images/butter-pecan.webp' },
     { name: 'Blueberry', img: 'images/blueberry.webp' },
     { name: 'Tres Leches', img: 'images/tres-leches.webp' }
@@ -140,7 +140,7 @@ window.BAKERY = {
     { name: 'Banana Bread', img: 'images/banana-bread.webp' },
     { name: 'Tiramisu', img: 'images/tiramisu.webp' },
     { name: 'Butter Pecan', img: 'images/butter-pecan.webp' },
-    { name: 'Birthday Cake', img: '' }, // needs a photo
+    { name: 'Funfetti', img: '' }, // needs a photo
     { name: 'Blueberry', img: 'images/blueberry.webp' },
     { name: 'Tres Leches', img: 'images/tres-leches.webp' }
   ]
