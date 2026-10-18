@@ -59,7 +59,7 @@ window.BAKERY = {
     { name: 'Birthday Cake', img: '' }, // photo coming soon
     { name: 'Butter Pecan', img: 'images/butter-pecan.webp' },
     { name: 'Blueberry', img: 'images/blueberry.webp' },
-    { name: 'Salted Caramel', img: 'images/salted-caramel.webp' }
+    { name: 'Tres Leches', img: 'images/tres-leches.webp' }
   ],
 
   // Saved flavors for later weeks. Not shown on the site.
@@ -141,6 +141,7 @@ window.BAKERY = {
     { name: 'Tiramisu', img: 'images/tiramisu.webp' },
     { name: 'Butter Pecan', img: 'images/butter-pecan.webp' },
     { name: 'Birthday Cake', img: '' }, // needs a photo
-    { name: 'Blueberry', img: 'images/blueberry.webp' }
+    { name: 'Blueberry', img: 'images/blueberry.webp' },
+    { name: 'Tres Leches', img: 'images/tres-leches.webp' }
   ]
 };
