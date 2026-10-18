@@ -8,6 +8,7 @@
 
 var SITE_URL = 'https://nelson299.github.io/Cinnamon-Rolls/';
 var BAKERY = 'Bakes by El';
+var SCRIPT_VERSION = 'v4-cash'; // shown at the web app URL so you can check which version is live
 var VENMO = 'ellinelson1';
 var TEXT_NUMBER = '(701) 306-9643';
 var TZ = 'America/Chicago';
@@ -44,7 +45,7 @@ function doGet(e) {
     }
     return HtmlService.createHtmlOutput('<p style="font-family:sans-serif">You\'re unsubscribed from ' + BAKERY + ' emails.</p>');
   }
-  return HtmlService.createHtmlOutput('<p style="font-family:sans-serif">' + BAKERY + ' order system is running.</p>');
+  return HtmlService.createHtmlOutput('<p style="font-family:sans-serif">' + BAKERY + ' order system is running (' + SCRIPT_VERSION + ').</p>');
 }
 
 function subscribe_(d) {
