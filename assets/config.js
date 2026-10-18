@@ -57,6 +57,16 @@ window.BAKERY = {
   // Photos for all of these are kept in the images/ folder.
   flavorLibrary: [
     {
+      id: 'maple-pecan',
+      name: 'Maple Pecan',
+      price: 4,
+      gourmet: true,
+      desc: 'Our original roll with maple cream cheese icing and toasted pecans.',
+      ingredients: 'Everything in the original, plus pecans and maple syrup',
+      allergens: 'Wheat, milk, eggs, tree nuts (pecans)',
+      img: 'images/maple-pecan.webp'
+    },
+    {
       id: 'peach-cobbler',
       name: 'Peach Cobbler',
       price: 4,
