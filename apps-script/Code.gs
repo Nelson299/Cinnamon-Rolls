@@ -138,7 +138,9 @@ function confirmationEmail_(d, lines, total, count, address, note, cash) {
     '<div style="font-weight:bold;margin:6px 0">' + esc_(d.deliveryDate) + ' · between 7 and 11 AM</div>' +
     '<div>' + esc_(address) + '</div>' +
     (d.notes ? '<div style="color:#6B5570;margin-top:4px">Notes: ' + esc_(d.notes) + '</div>' : '') +
-    '<div style="color:#6B5570;margin-top:4px">Not home? We\'ll leave them on your front step.</div>' +
+    '<div style="color:#6B5570;margin-top:4px">' + (cash
+      ? 'Paying cash, so please make sure someone is home to pay at delivery.'
+      : 'Not home? We\'ll leave them on your front step.') + '</div>' +
     '</div>' +
     '<table style="width:100%;border-collapse:collapse;font-size:15px">' + rows +
     '<tr><td style="border-top:1px dashed #E3D3E6;padding-top:10px;font-weight:bold">Total (' + count + (count === 1 ? ' roll' : ' rolls') + ')</td>' +
