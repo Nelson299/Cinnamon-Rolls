@@ -40,7 +40,7 @@ window.BAKERY = {
       desc: 'Our original roll swirled with a sweet raspberry filling under cream cheese icing.',
       ingredients: 'Everything in the original, plus raspberries and cornstarch',
       allergens: 'Wheat, milk, eggs',
-      img: '' // photo coming soon
+      img: 'images/raspberry.webp'
     },
     {
       id: 'chai',
@@ -50,7 +50,7 @@ window.BAKERY = {
       desc: 'Our original roll with a warm chai-spiced filling and chai cream cheese icing.',
       ingredients: 'Everything in the original, plus chai spices (cardamom, ginger, cloves, nutmeg, black pepper)',
       allergens: 'Wheat, milk, eggs',
-      img: '' // photo coming soon
+      img: 'images/chai.webp'
     }
   ],
 
