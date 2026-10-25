@@ -43,14 +43,14 @@ window.BAKERY = {
       img: '' // photo coming soon
     },
     {
-      id: 'maple-pecan',
-      name: 'Maple Pecan',
+      id: 'chai',
+      name: 'Chai',
       price: 4,
       gourmet: true,
-      desc: 'Our original roll with maple cream cheese icing and toasted pecans.',
-      ingredients: 'Everything in the original, plus pecans and maple syrup',
-      allergens: 'Wheat, milk, eggs, tree nuts (pecans)',
-      img: 'images/maple-pecan.webp'
+      desc: 'Our original roll with a warm chai-spiced filling and chai cream cheese icing.',
+      ingredients: 'Everything in the original, plus chai spices (cardamom, ginger, cloves, nutmeg, black pepper)',
+      allergens: 'Wheat, milk, eggs',
+      img: '' // photo coming soon
     }
   ],
 
