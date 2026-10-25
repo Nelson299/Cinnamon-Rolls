@@ -33,14 +33,14 @@ window.BAKERY = {
       img: 'images/original.webp'
     },
     {
-      id: 'caramel-apple',
-      name: 'Caramel Apple',
+      id: 'raspberry',
+      name: 'Raspberry',
       price: 4,
       gourmet: true,
-      desc: 'Our original roll filled with cinnamon apples and drizzled with homemade caramel.',
-      ingredients: 'Everything in the original, plus apples, cornstarch and caramel (sugar, butter, heavy cream)',
+      desc: 'Our original roll swirled with a sweet raspberry filling under cream cheese icing.',
+      ingredients: 'Everything in the original, plus raspberries and cornstarch',
       allergens: 'Wheat, milk, eggs',
-      img: 'images/caramel-apple.webp'
+      img: '' // photo coming soon
     },
     {
       id: 'maple-pecan',
@@ -66,6 +66,16 @@ window.BAKERY = {
   // To bring one back, copy it into `flavors` (or `pastAndFuture`) above.
   // Photos for all of these are kept in the images/ folder.
   flavorLibrary: [
+    {
+      id: 'caramel-apple',
+      name: 'Caramel Apple',
+      price: 4,
+      gourmet: true,
+      desc: 'Our original roll filled with cinnamon apples and drizzled with homemade caramel.',
+      ingredients: 'Everything in the original, plus apples, cornstarch and caramel (sugar, butter, heavy cream)',
+      allergens: 'Wheat, milk, eggs',
+      img: 'images/caramel-apple.webp'
+    },
     {
       id: 'maple-pecan',
       name: 'Maple Pecan',
