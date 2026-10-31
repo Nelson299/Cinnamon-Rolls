@@ -119,7 +119,7 @@
     document.querySelectorAll('[data-close-label]').forEach(function (el) { el.textContent = closeLabel; });
   }
 
-  // ---------- Pop-up week ----------
+  // ---------- Pop up week ----------
   function popUpOn() { return !!(B.popUp && B.popUp.enabled); }
   function popUpLine() { var p = B.popUp; return p.place + ' · ' + p.date + ' · ' + p.time; }
 
@@ -137,27 +137,27 @@
     $('.hero').id = 'popup';
     $('.hero-text').innerHTML =
       '<span class="pill pill-closed">No deliveries this week</span>' +
-      '<h1>Come see me at the <em>' + esc(p.place) + '</em> pop-up.</h1>' +
-      '<p>I\'m skipping delivery this week and baking for a pop-up instead. Stop by, say hi, and take rolls home. Online ordering is closed.</p>' +
-      '<div class="popup-card"><span class="popup-card-label">Pop-up details</span>' +
+      '<h1>Come see me at the <em>' + esc(p.place) + '</em> pop up.</h1>' +
+      '<p>I\'m skipping delivery this week and baking for a pop up instead. Stop by, say hi, and take rolls home. Online ordering is closed.</p>' +
+      '<div class="popup-card"><span class="popup-card-label">Pop up details</span>' +
       '<div><b>' + esc(p.date) + '</b></div><div>' + esc(p.time) + '</div><div>' + esc(p.place) + '</div></div>' +
       '<div class="hero-buttons"><a class="btn btn-primary" href="#flavors">See this week\'s flavors</a></div>';
 
     var head = $('.site-header .btn');
-    head.textContent = 'Pop-up details';
+    head.textContent = 'Pop up details';
     head.setAttribute('href', '#popup');
     var how = $('#how'); if (how) how.remove();
     var howLink = $('.nav a[href="#how"]'); if (howLink) howLink.remove();
-    $('#flavors .section-head h2').textContent = 'Flavors at the pop-up';
+    $('#flavors .section-head h2').textContent = 'Flavors at the pop up';
 
     var faq = $('.faq');
     faq.innerHTML =
-      '<div class="faq-item"><h3>Is there delivery this week?</h3><p>No. This week I\'m at the ' + esc(p.place) + ' pop-up instead. Normal Saturday deliveries return soon.</p></div>' +
-      '<div class="faq-item"><h3>Where and when is the pop-up?</h3><p>' + esc(p.place) + ', ' + esc(p.date) + ', ' + esc(p.time) + '.</p></div>' +
-      '<div class="faq-item"><h3>Can I order online?</h3><p>Not this week. Just come by the pop-up and pick out your rolls.</p></div>' +
+      '<div class="faq-item"><h3>Is there delivery this week?</h3><p>No. This week I\'m at the ' + esc(p.place) + ' pop up instead. Normal Saturday deliveries return soon.</p></div>' +
+      '<div class="faq-item"><h3>Where and when is the pop up?</h3><p>' + esc(p.place) + ', ' + esc(p.date) + ', ' + esc(p.time) + '.</p></div>' +
+      '<div class="faq-item"><h3>Can I order online?</h3><p>Not this week. Just come by the pop up and pick out your rolls.</p></div>' +
       '<div class="faq-item"><h3>How do I keep and reheat them?</h3><p>They stay fresh for up to 2 days. Keep them in the fridge since the icing has cream cheese. Warm one in the microwave for 15–30 seconds.</p></div>';
 
-    $('.footer-info span').textContent = 'Pop-up this week · ' + p.place + ' · ' + p.date + ' · West Fargo, ND';
+    $('.footer-info span').textContent = 'Pop up this week · ' + p.place + ' · ' + p.date + ' · West Fargo, ND';
 
     // Announcement popup replaces the email sign-up popup.
     var body = $('#signup-modal .modal-body');
@@ -229,7 +229,7 @@
       box.innerHTML =
         '<span class="pill pill-closed">No deliveries this week</span>' +
         '<h1>Online ordering is closed. <span class="accent-em">Come see me at ' + esc(p.place) + '!</span></h1>' +
-        '<p>This week I\'m at a pop-up instead of delivering: <b>' + esc(p.date) + ', ' + esc(p.time) + '</b> at ' + esc(p.place) + '.</p>' +
+        '<p>This week I\'m at a pop up instead of delivering: <b>' + esc(p.date) + ', ' + esc(p.time) + '</b> at ' + esc(p.place) + '.</p>' +
         '<div><a class="btn btn-primary" href="index.html#flavors">See this week\'s flavors</a></div>';
       return;
     }

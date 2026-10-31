@@ -328,7 +328,7 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   .confirm-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
-/* Pop-up week */
+/* Pop up week */
 .popup-banner { display: block; background: var(--plum); color: #fff; text-align: center; padding: 11px 20px; font-size: 14px; line-height: 1.4; }
 .popup-banner:hover { color: #fff; background: var(--ink); }
 .popup-banner b { font-weight: 700; }

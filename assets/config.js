@@ -19,8 +19,8 @@ window.BAKERY = {
   closeDay: 4,      // 0 = Sunday ... 4 = Thursday
   closeHour: 20,    // 24-hour clock, 20 = 8 PM
 
-  // Pop-up week. While enabled, online ordering and delivery are switched
-  // off and the site points visitors to the pop-up instead.
+  // Pop up week. While enabled, online ordering and delivery are switched
+  // off and the site points visitors to the pop up instead.
   // Set enabled to false to go back to normal Saturday deliveries.
   popUp: {
     enabled: true,
