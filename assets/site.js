@@ -119,8 +119,57 @@
     document.querySelectorAll('[data-close-label]').forEach(function (el) { el.textContent = closeLabel; });
   }
 
+  // ---------- Pop-up week ----------
+  function popUpOn() { return !!(B.popUp && B.popUp.enabled); }
+  function popUpLine() { var p = B.popUp; return p.place + ' · ' + p.date + ' · ' + p.time; }
+
+  function popUpBanner() {
+    var bar = document.createElement('a');
+    bar.className = 'popup-banner';
+    bar.href = 'index.html#popup';
+    bar.innerHTML = '<b>No deliveries this week.</b> Visit me at ' + esc(B.popUp.place) +
+      ', ' + esc(B.popUp.date) + ', ' + esc(B.popUp.time);
+    document.body.insertBefore(bar, document.body.firstChild);
+  }
+
+  function popUpHome() {
+    var p = B.popUp;
+    $('.hero').id = 'popup';
+    $('.hero-text').innerHTML =
+      '<span class="pill pill-closed">No deliveries this week</span>' +
+      '<h1>Come see me at the <em>' + esc(p.place) + '</em> pop-up.</h1>' +
+      '<p>I\'m skipping delivery this week and baking for a pop-up instead. Stop by, say hi, and take rolls home. Online ordering is closed.</p>' +
+      '<div class="popup-card"><span class="popup-card-label">Pop-up details</span>' +
+      '<div><b>' + esc(p.date) + '</b></div><div>' + esc(p.time) + '</div><div>' + esc(p.place) + '</div></div>' +
+      '<div class="hero-buttons"><a class="btn btn-primary" href="#flavors">See this week\'s flavors</a></div>';
+
+    var head = $('.site-header .btn');
+    head.textContent = 'Pop-up details';
+    head.setAttribute('href', '#popup');
+    var how = $('#how'); if (how) how.remove();
+    var howLink = $('.nav a[href="#how"]'); if (howLink) howLink.remove();
+    $('#flavors .section-head h2').textContent = 'Flavors at the pop-up';
+
+    var faq = $('.faq');
+    faq.innerHTML =
+      '<div class="faq-item"><h3>Is there delivery this week?</h3><p>No. This week I\'m at the ' + esc(p.place) + ' pop-up instead. Normal Saturday deliveries return soon.</p></div>' +
+      '<div class="faq-item"><h3>Where and when is the pop-up?</h3><p>' + esc(p.place) + ', ' + esc(p.date) + ', ' + esc(p.time) + '.</p></div>' +
+      '<div class="faq-item"><h3>Can I order online?</h3><p>Not this week. Just come by the pop-up and pick out your rolls.</p></div>' +
+      '<div class="faq-item"><h3>How do I keep and reheat them?</h3><p>They stay fresh for up to 2 days. Keep them in the fridge since the icing has cream cheese. Warm one in the microwave for 15–30 seconds.</p></div>';
+
+    $('.footer-info span').textContent = 'Pop-up this week · ' + p.place + ' · ' + p.date + ' · West Fargo, ND';
+
+    // Announcement popup replaces the email sign-up popup.
+    var body = $('#signup-modal .modal-body');
+    body.innerHTML =
+      '<h2 id="popup-title">No deliveries <span class="accent-em">this week</span></h2>' +
+      '<p>Find me at <b>' + esc(p.place) + '</b><br>' + esc(p.date) + ' · ' + esc(p.time) + '</p>' +
+      '<button type="button" class="btn btn-primary" data-close>Got it</button>';
+  }
+
   // ---------- Homepage ----------
   function initHome(w) {
+    if (popUpOn()) popUpHome();
     var list = $('#flavor-list');
     list.innerHTML = B.flavors.map(function (f) {
       return '<article class="flavor' + (f.gourmet ? ' gourmet' : '') + '">' +
@@ -149,15 +198,17 @@
 
     // First-visit popup
     var modal = $('#signup-modal');
-    if (!store('bbe-popup-seen') && !store('bbe-subscribed')) {
+    var seenKey = popUpOn() ? 'bbe-popup-note-seen' : 'bbe-popup-seen';
+    if (!store(seenKey) && (popUpOn() || !store('bbe-subscribed'))) {
       setTimeout(function () {
         modal.classList.remove('hidden');
-        $('#popup-email').focus();
+        var email = $('#popup-email');
+        if (email) email.focus();
       }, 1200);
     }
     function closeModal() {
       modal.classList.add('hidden');
-      store('bbe-popup-seen', true);
+      store(seenKey, true);
     }
     modal.addEventListener('click', function (e) {
       if (e.target === modal || e.target.closest('[data-close]')) closeModal();
@@ -165,11 +216,23 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
     });
-    wireSignup($('#popup-form'), function () { setTimeout(closeModal, 1400); });
+    if (!popUpOn()) wireSignup($('#popup-form'), function () { setTimeout(closeModal, 1400); });
   }
 
   // ---------- Order page ----------
   function initOrder(w) {
+    if (popUpOn()) {
+      var p = B.popUp;
+      $('#order-open').classList.add('hidden');
+      var box = $('#order-closed');
+      box.classList.remove('hidden');
+      box.innerHTML =
+        '<span class="pill pill-closed">No deliveries this week</span>' +
+        '<h1>Online ordering is closed. <span class="accent-em">Come see me at ' + esc(p.place) + '!</span></h1>' +
+        '<p>This week I\'m at a pop-up instead of delivering: <b>' + esc(p.date) + ', ' + esc(p.time) + '</b> at ' + esc(p.place) + '.</p>' +
+        '<div><a class="btn btn-primary" href="index.html#flavors">See this week\'s flavors</a></div>';
+      return;
+    }
     if (!w.open) {
       $('#order-open').classList.add('hidden');
       $('#order-closed').classList.remove('hidden');
@@ -362,6 +425,7 @@
   // ---------- Boot ----------
   var w = orderWindow();
   paintStatus(w);
+  if (popUpOn() && document.body.getAttribute('data-page') !== 'confirmation') popUpBanner();
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
   var page = document.body.getAttribute('data-page');
   if (page === 'home') initHome(w);

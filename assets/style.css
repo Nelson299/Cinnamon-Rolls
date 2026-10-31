@@ -327,3 +327,12 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   .confirm-head h1 { font-size: 30px; }
   .confirm-grid { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Pop-up week */
+.popup-banner { display: block; background: var(--plum); color: #fff; text-align: center; padding: 11px 20px; font-size: 14px; line-height: 1.4; }
+.popup-banner:hover { color: #fff; background: var(--ink); }
+.popup-banner b { font-weight: 700; }
+.popup-card { background: #fff; border: 1.5px dashed var(--dash); border-radius: 20px; padding: 18px 22px; width: fit-content; max-width: 100%; font-size: 18px; line-height: 1.7; }
+.popup-card-label { display: block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); margin-bottom: 4px; }
+.modal-body .btn { align-self: center; }
+@media (max-width: 760px) { .popup-banner { font-size: 13px; padding: 9px 14px; } }

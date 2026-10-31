@@ -19,6 +19,16 @@ window.BAKERY = {
   closeDay: 4,      // 0 = Sunday ... 4 = Thursday
   closeHour: 20,    // 24-hour clock, 20 = 8 PM
 
+  // Pop-up week. While enabled, online ordering and delivery are switched
+  // off and the site points visitors to the pop-up instead.
+  // Set enabled to false to go back to normal Saturday deliveries.
+  popUp: {
+    enabled: true,
+    place: 'Eco Chic',
+    date: 'Saturday, November 7',
+    time: '10 AM – 12 PM'
+  },
+
   // This week's flavors. The first one should stay the Original.
   // price: 3 for the Original, 4 for gourmet flavors.
   flavors: [
@@ -57,7 +67,7 @@ window.BAKERY = {
   // "Past & future flavors" section on the homepage.
   pastAndFuture: [
     { name: 'Funfetti', img: 'images/funfetti.png' },
-    { name: 'Butter Pecan', img: 'images/butter-pecan.webp' },
+    { name: 'Salted Caramel Pumpkin', img: 'images/salted-caramel-pumpkin.webp' },
     { name: 'Blueberry', img: 'images/blueberry.webp' },
     { name: 'Tres Leches', img: 'images/tres-leches.webp' }
   ],
