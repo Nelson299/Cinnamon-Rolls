@@ -53,11 +53,11 @@ window.BAKERY = {
       img: 'images/salted-caramel.webp'
     },
     {
-      id: 'apple-streusel',
-      name: 'Apple Cinnamon with Streusel',
+      id: 'apple-cinnamon',
+      name: 'Apple Cinnamon',
       price: 4,
       gourmet: true,
-      desc: 'Our original roll with warm cinnamon apples and a crumbly streusel topping.',
+      desc: 'Our original roll with warm cinnamon apples under cream cheese icing.',
       ingredients: 'Everything in the original, plus apples and cornstarch',
       allergens: 'Wheat, milk, eggs',
       img: 'images/apple.webp'
