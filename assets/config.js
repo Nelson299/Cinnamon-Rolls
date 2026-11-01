@@ -43,6 +43,40 @@ window.BAKERY = {
       img: 'images/original.webp'
     },
     {
+      id: 'salted-caramel',
+      name: 'Salted Caramel',
+      price: 4,
+      gourmet: true,
+      desc: 'Our original roll drizzled with homemade caramel and a pinch of sea salt.',
+      ingredients: 'Everything in the original, plus caramel (sugar, butter, heavy cream) and sea salt',
+      allergens: 'Wheat, milk, eggs',
+      img: 'images/salted-caramel.webp'
+    },
+    {
+      id: 'apple-streusel',
+      name: 'Apple Cinnamon with Streusel',
+      price: 4,
+      gourmet: true,
+      desc: 'Our original roll with warm cinnamon apples and a crumbly streusel topping.',
+      ingredients: 'Everything in the original, plus apples and cornstarch',
+      allergens: 'Wheat, milk, eggs',
+      img: 'images/apple.webp'
+    }
+  ],
+
+  // "Past & future flavors" section on the homepage.
+  pastAndFuture: [
+    { name: 'Funfetti', img: 'images/funfetti.png' },
+    { name: 'Salted Caramel Pumpkin', img: 'images/salted-caramel-pumpkin.webp' },
+    { name: 'Blueberry', img: 'images/blueberry.webp' },
+    { name: 'Tres Leches', img: 'images/tres-leches.webp' }
+  ],
+
+  // Saved flavors for later weeks. Not shown on the site.
+  // To bring one back, copy it into `flavors` (or `pastAndFuture`) above.
+  // Photos for all of these are kept in the images/ folder.
+  flavorLibrary: [
+    {
       id: 'raspberry',
       name: 'Raspberry',
       price: 4,
@@ -61,21 +95,7 @@ window.BAKERY = {
       ingredients: 'Everything in the original, plus chai spices (cardamom, ginger, cloves, nutmeg, black pepper)',
       allergens: 'Wheat, milk, eggs',
       img: 'images/chai.webp'
-    }
-  ],
-
-  // "Past & future flavors" section on the homepage.
-  pastAndFuture: [
-    { name: 'Funfetti', img: 'images/funfetti.png' },
-    { name: 'Salted Caramel Pumpkin', img: 'images/salted-caramel-pumpkin.webp' },
-    { name: 'Blueberry', img: 'images/blueberry.webp' },
-    { name: 'Tres Leches', img: 'images/tres-leches.webp' }
-  ],
-
-  // Saved flavors for later weeks. Not shown on the site.
-  // To bring one back, copy it into `flavors` (or `pastAndFuture`) above.
-  // Photos for all of these are kept in the images/ folder.
-  flavorLibrary: [
+    },
     {
       id: 'caramel-apple',
       name: 'Caramel Apple',
@@ -105,26 +125,6 @@ window.BAKERY = {
       ingredients: 'Everything in the original, plus peaches and cornstarch',
       allergens: 'Wheat, milk, eggs',
       img: 'images/peach-cobbler.webp'
-    },
-    {
-      id: 'salted-caramel',
-      name: 'Salted Caramel',
-      price: 4,
-      gourmet: true,
-      desc: 'Our original roll drizzled with homemade caramel and a pinch of sea salt.',
-      ingredients: 'Everything in the original, plus caramel (sugar, butter, heavy cream) and sea salt',
-      allergens: 'Wheat, milk, eggs',
-      img: 'images/salted-caramel.webp'
-    },
-    {
-      id: 'apple-streusel',
-      name: 'Apple Cinnamon with Streusel',
-      price: 4,
-      gourmet: true,
-      desc: 'Our original roll with warm cinnamon apples and a crumbly streusel topping.',
-      ingredients: 'Everything in the original, plus apples and cornstarch',
-      allergens: 'Wheat, milk, eggs',
-      img: 'images/apple-streusel.webp'
     },
     {
       id: 'cookies-and-cream',
