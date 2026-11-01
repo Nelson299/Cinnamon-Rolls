@@ -12,7 +12,10 @@ var SCRIPT_VERSION = 'v4-cash'; // shown at the web app URL so you can check whi
 var VENMO = 'ellinelson1';
 var TEXT_NUMBER = '(701) 306-9643';
 var TZ = 'America/Chicago';
-var CLOSE_DAY = 4;   // 0 = Sunday ... 4 = Thursday
+// Pop up week: the Sunday email says there are no deliveries and points to the pop up.
+// Set to null for a normal ordering-is-open email.
+var POP_UP = { place: 'Eco Chic', date: 'Saturday, November 7', time: '10 AM – 12 PM' };
+var CLOSE_DAY = 4;  // 0 = Sunday ... 4 = Thursday
 var CLOSE_HOUR = 20; // 8 PM
 var DISCLAIMER = 'This product is made in a home kitchen that is not inspected by the state or local health department. ' +
   BAKERY + ' products are not certified, labeled, licensed, packaged, regulated, or inspected.';
@@ -174,14 +177,18 @@ function sendOrderingOpenEmails() {
     if (!email || rows[i][2] === 'unsubscribed') continue;
     if (MailApp.getRemainingDailyQuota() < 5) break;
     var unsub = webAppUrl + '?unsubscribe=' + encodeURIComponent(email);
+    var heading = POP_UP ? 'No deliveries this week. Come see me at the ' + POP_UP.place + ' pop up!' : 'Ordering is open for this Saturday!';
+    var line = POP_UP
+      ? 'I\'m skipping delivery this week and baking for a pop up instead. Find me at <b>' + POP_UP.place + '</b>, ' + POP_UP.date + ', ' + POP_UP.time + '. Online ordering is closed this week.'
+      : 'Order by Thursday at 8 PM for delivery Saturday between 7 and 11 AM.';
     MailApp.sendEmail({
       to: email,
-      subject: 'Cinnamon roll ordering is open!',
+      subject: POP_UP ? 'No deliveries this week: pop up at ' + POP_UP.place : 'Cinnamon roll ordering is open!',
       name: BAKERY,
       htmlBody:
         '<div style="font-family:Helvetica,Arial,sans-serif;color:#3B2A3F;max-width:520px;margin:0 auto;padding:24px">' +
-        '<h1 style="font-family:Georgia,serif;font-size:26px">Ordering is open for this Saturday!</h1>' +
-        '<p style="color:#6B5570">Order by Thursday at 8 PM for delivery Saturday between 7 and 11 AM.</p>' +
+        '<h1 style="font-family:Georgia,serif;font-size:26px">' + heading + '</h1>' +
+        '<p style="color:#6B5570">' + line + '</p>' +
         '<p><a href="' + SITE_URL + '" style="display:inline-block;background:#C2376A;color:#fff;text-decoration:none;font-weight:bold;padding:12px 24px;border-radius:999px">See this week\'s flavors</a></p>' +
         '<p style="font-size:12px;color:#6B5570;margin-top:28px">' + DISCLAIMER + '<br>' +
         '<a href="' + unsub + '" style="color:#6B5570">Unsubscribe</a></p></div>'
