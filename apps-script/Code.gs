@@ -14,7 +14,7 @@ var TEXT_NUMBER = '(701) 306-9643';
 var TZ = 'America/Chicago';
 // Pop up week: the Sunday email says there are no deliveries and points to the pop up.
 // Set to null for a normal ordering-is-open email.
-var POP_UP = { place: 'Eco Chic', date: 'Saturday, November 7', time: '10 AM – 12 PM' };
+var POP_UP = null;
 var CLOSE_DAY = 4;  // 0 = Sunday ... 4 = Thursday
 var CLOSE_HOUR = 20; // 8 PM
 var DISCLAIMER = 'This product is made in a home kitchen that is not inspected by the state or local health department. ' +

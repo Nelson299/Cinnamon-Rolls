@@ -23,7 +23,7 @@ window.BAKERY = {
   // off and the site points visitors to the pop up instead.
   // Set enabled to false to go back to normal Saturday deliveries.
   popUp: {
-    enabled: true,
+    enabled: false,
     place: 'Eco Chic',
     date: 'Saturday, November 7',
     time: '10 AM – 12 PM'
@@ -43,6 +43,29 @@ window.BAKERY = {
       img: 'images/original.webp'
     },
     {
+      id: 'funfetti',
+      name: 'Funfetti',
+      price: 4,
+      gourmet: true,
+      desc: 'Our original roll with a cake batter filling and sprinkles under cream cheese icing.',
+      ingredients: 'Flour, yeast, salt, eggs, sugar, milk, butter, cake batter extract, sprinkles, heavy cream, vanilla extract, powdered sugar, cream cheese',
+      allergens: 'Wheat, milk, eggs',
+      img: 'images/funfetti.png'
+    }
+  ],
+
+  // "Past & future flavors" section on the homepage.
+  pastAndFuture: [
+    { name: 'Salted Caramel Pumpkin', img: 'images/salted-caramel-pumpkin.webp' },
+    { name: 'Blueberry', img: 'images/blueberry.webp' },
+    { name: 'Tres Leches', img: 'images/tres-leches.webp' }
+  ],
+
+  // Saved flavors for later weeks. Not shown on the site.
+  // To bring one back, copy it into `flavors` (or `pastAndFuture`) above.
+  // Photos for all of these are kept in the images/ folder.
+  flavorLibrary: [
+    {
       id: 'salted-caramel',
       name: 'Salted Caramel',
       price: 4,
@@ -61,21 +84,7 @@ window.BAKERY = {
       ingredients: 'Everything in the original, plus apples and cornstarch',
       allergens: 'Wheat, milk, eggs',
       img: 'images/apple.webp'
-    }
-  ],
-
-  // "Past & future flavors" section on the homepage.
-  pastAndFuture: [
-    { name: 'Funfetti', img: 'images/funfetti.png' },
-    { name: 'Salted Caramel Pumpkin', img: 'images/salted-caramel-pumpkin.webp' },
-    { name: 'Blueberry', img: 'images/blueberry.webp' },
-    { name: 'Tres Leches', img: 'images/tres-leches.webp' }
-  ],
-
-  // Saved flavors for later weeks. Not shown on the site.
-  // To bring one back, copy it into `flavors` (or `pastAndFuture`) above.
-  // Photos for all of these are kept in the images/ folder.
-  flavorLibrary: [
+    },
     {
       id: 'raspberry',
       name: 'Raspberry',
