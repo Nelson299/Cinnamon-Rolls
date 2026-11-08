@@ -51,6 +51,16 @@ window.BAKERY = {
       ingredients: 'Flour, yeast, salt, eggs, sugar, milk, butter, cake batter extract, sprinkles, heavy cream, vanilla extract, powdered sugar, cream cheese',
       allergens: 'Wheat, milk, eggs',
       img: 'images/funfetti.png'
+    },
+    {
+      id: 'mocha',
+      name: 'Mocha',
+      price: 4,
+      gourmet: true,
+      desc: 'Our original roll with a cocoa and coffee filling under mocha cream cheese icing.',
+      ingredients: 'Everything in the original, plus cocoa powder and coffee',
+      allergens: 'Wheat, milk, eggs',
+      img: 'images/mocha.png'
     }
   ],
 
