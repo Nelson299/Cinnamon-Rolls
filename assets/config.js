@@ -43,14 +43,14 @@ window.BAKERY = {
       img: 'images/original.webp'
     },
     {
-      id: 'funfetti',
-      name: 'Funfetti',
+      id: 'banana-bread',
+      name: 'Banana Bread',
       price: 4,
       gourmet: true,
-      desc: 'Our original roll with a cake batter filling and sprinkles under cream cheese icing.',
-      ingredients: 'Flour, yeast, salt, eggs, sugar, milk, butter, cake batter extract, sprinkles, heavy cream, vanilla extract, powdered sugar, cream cheese',
+      desc: 'Our original roll with a sweet banana filling, topped with cream cheese icing.',
+      ingredients: 'Everything in the original, plus bananas',
       allergens: 'Wheat, milk, eggs',
-      img: 'images/funfetti.png'
+      img: 'images/banana-bread.webp'
     },
     {
       id: 'gingerbread',
@@ -189,7 +189,16 @@ window.BAKERY = {
     { name: 'Banana Bread', img: 'images/banana-bread.webp' },
     { name: 'Tiramisu', img: 'images/tiramisu.webp' },
     { name: 'Butter Pecan', img: 'images/butter-pecan.webp' },
-    { name: 'Funfetti', img: 'images/funfetti.png' },
+    {
+      id: 'funfetti',
+      name: 'Funfetti',
+      price: 4,
+      gourmet: true,
+      desc: 'Our original roll with a cake batter filling and sprinkles under cream cheese icing.',
+      ingredients: 'Flour, yeast, salt, eggs, sugar, milk, butter, cake batter extract, sprinkles, heavy cream, vanilla extract, powdered sugar, cream cheese',
+      allergens: 'Wheat, milk, eggs',
+      img: 'images/funfetti.png'
+    },
     { name: 'Blueberry', img: 'images/blueberry.webp' },
     { name: 'Tres Leches', img: 'images/tres-leches.webp' }
   ]
