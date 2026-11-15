@@ -53,14 +53,14 @@ window.BAKERY = {
       img: 'images/funfetti.png'
     },
     {
-      id: 'mocha',
-      name: 'Mocha',
+      id: 'gingerbread',
+      name: 'Gingerbread',
       price: 4,
       gourmet: true,
-      desc: 'Our original roll with a cocoa and coffee filling under mocha cream cheese icing.',
-      ingredients: 'Everything in the original, plus cocoa powder and coffee',
+      desc: 'Our original roll with a warm gingerbread-spiced filling and cream cheese icing.',
+      ingredients: 'Everything in the original, plus molasses, ginger, cloves and nutmeg',
       allergens: 'Wheat, milk, eggs',
-      img: 'images/mocha.png'
+      img: 'images/gingerbread.webp'
     }
   ],
 
@@ -75,6 +75,16 @@ window.BAKERY = {
   // To bring one back, copy it into `flavors` (or `pastAndFuture`) above.
   // Photos for all of these are kept in the images/ folder.
   flavorLibrary: [
+    {
+      id: 'mocha',
+      name: 'Mocha',
+      price: 4,
+      gourmet: true,
+      desc: 'Our original roll with a cocoa and coffee filling under mocha cream cheese icing.',
+      ingredients: 'Everything in the original, plus cocoa powder and coffee',
+      allergens: 'Wheat, milk, eggs',
+      img: 'images/mocha.png'
+    },
     {
       id: 'salted-caramel',
       name: 'Salted Caramel',
